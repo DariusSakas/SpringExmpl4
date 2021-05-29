@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class EmailService {
 
-    private static final String EMAIL = "darius.shakas@gmail.com";
+    private static final String EMAIL = "test";
 
     private final JavaMailSender javaMailSender;
 
