@@ -32,4 +32,16 @@ public class EmployeeController {
         log.info("Adding " + employee.toString() +" employee to DB");
         return employeeService.addEmployee(employee);
     }
+    @DeleteMapping("/{id}")
+    public List<Employee> deleteEmployeeById(@PathVariable Long id){
+        log.info("Deleting employee from DB by ID" + id);
+        employeeService.deleteEmployeeById(id);
+        return employeeService.getAllEmployees();
+    }
+    @PutMapping("/")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        log.info("updating employee with new data "+ employee);
+        employeeService.updateEmployee(employee);
+        return employeeService.getAllEmployeesById(employee.getId());
+    }
 }
