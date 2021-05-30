@@ -1,5 +1,7 @@
 package com.example.springexmpl4.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "deparment_id")
+    @JsonManagedReference
     private Department department;
 
     public Employee(String firstName, String lastName, Integer salary, Integer experience) {

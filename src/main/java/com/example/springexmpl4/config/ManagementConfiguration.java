@@ -38,6 +38,15 @@ public class ManagementConfiguration {
                             new Employee("Agne", " Tas ", 1450, 4, department2),
                             new Employee("Vilius", " Rasras ", 1600, 6, department2),
                             new Employee("Igor", " Antrasis ", 2100, 8, department1)
+
+//            new Employee("Will", "Smith", 1200, 4
+//            ),
+//                    new Employee("Vidas", "Pavardenis", 1900, 8
+//                    ),
+//                    new Employee("Igor", " Kas ", 1400, 3),
+//                    new Employee("Agne", " Tas ", 1450, 4),
+//                    new Employee("Vilius", " Rasras ", 1600, 6),
+//                    new Employee("Igor", " Antrasis ", 2100, 8)
                     )
             );
             emailRepository.saveAll(

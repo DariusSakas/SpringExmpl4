@@ -19,7 +19,6 @@ public class DepartmentController {
     @GetMapping("/")
     public List<Department> getAllEmployees(){
         log.info("Fetching all departments from database");
-
         return departmentService.getAllDepartments();
     }
     @GetMapping("/{id}")
