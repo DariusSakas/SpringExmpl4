@@ -19,6 +19,13 @@ public class Email {
     private Long id;
     private String sendTo;
     private String sentBy;
+    private String mailSubject;
     private String mailText;
 
+    public Email(String sendTo, String sentBy, String mailSubject, String mailText) {
+        this.sendTo = sendTo;
+        this.sentBy = sentBy;
+        this.mailSubject = mailSubject;
+        this.mailText = mailText;
+    }
 }

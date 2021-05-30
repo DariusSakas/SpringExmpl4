@@ -4,8 +4,6 @@ import com.example.springexmpl4.model.Employee;
 import com.example.springexmpl4.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -23,8 +21,10 @@ public class EmployeeService {
 
         return employeeRepository.findAll();
     }
+
     public Employee getAllEmployeesById(Long id){
-        return employeeRepository.findById(id).orElse(null);
+
+        return employeeRepository.findById(id).get();
     }
 
     public List<Employee> addEmployee(Employee employee) {
@@ -36,9 +36,8 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-
     public void updateEmployee(Employee employee) {
         employeeRepository.save(employee); //issaugo, jei neegzistuoja nauja
-
     }
+
 }

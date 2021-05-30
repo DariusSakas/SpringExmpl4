@@ -40,8 +40,9 @@ public class EmployeeController {
     }
     @PutMapping("/")
     public Employee updateEmployee(@RequestBody Employee employee){
-        log.info("updating employee with new data "+ employee);
+        log.info("Updating employee with new data "+ employee);
         employeeService.updateEmployee(employee);
         return employeeService.getAllEmployeesById(employee.getId());
     }
+
 }

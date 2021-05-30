@@ -10,21 +10,22 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@Table (name = "department")
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "department_id")
     private Long id;
-    @Column(nullable = false)
     private String name;
     private String address;
 
-    @OneToMany(mappedBy = "department" )
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Employee> employee;
 
     public Department(String name, String address) {
         this.name = name;
         this.address = address;
     }
+
+
 }
