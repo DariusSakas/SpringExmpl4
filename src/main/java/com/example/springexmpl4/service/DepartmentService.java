@@ -1,7 +1,6 @@
 package com.example.springexmpl4.service;
 
 import com.example.springexmpl4.model.Department;
-import com.example.springexmpl4.model.Employee;
 import com.example.springexmpl4.repository.DepartmentRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +35,9 @@ public class DepartmentService {
 
     public void updateDepartment(Department department) {
         departmentRepository.save(department); //issaugo, jei neegzistuoja nauja
-
+    }
+    public Department getDepartmentByName(String name){
+        return departmentRepository.getDepartmentByName(name);
     }
 
 }

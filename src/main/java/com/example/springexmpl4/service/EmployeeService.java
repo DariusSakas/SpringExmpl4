@@ -40,4 +40,7 @@ public class EmployeeService {
         employeeRepository.save(employee); //issaugo, jei neegzistuoja nauja
     }
 
+    public Employee getEmployeeByName(String firstName) {
+        return employeeRepository.getEmployeeByFirstName(firstName);
+    }
 }

@@ -6,8 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -43,6 +47,17 @@ public class EmailService {
         return simpleMailMessage;
     }
 
+    public void sendEmailWithAttachment(Email email) throws MessagingException {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper messageHelper = new MimeMessageHelper(message, true);
+        messageHelper.setSubject(email.getMailSubject());
+        messageHelper.setTo(email.getSendTo());
+        messageHelper.setText(email.getMailText() + "\n" + email.getSentBy());
 
+        File file = new File(PdfService.PDF_FILE_PATH);
+        messageHelper.addAttachment("virus_" + file.getName(), file);
 
+        javaMailSender.send(message);
+        log.info("Email was send with and attachment");
+    }
 }

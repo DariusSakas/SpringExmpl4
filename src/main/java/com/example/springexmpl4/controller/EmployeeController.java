@@ -1,5 +1,6 @@
 package com.example.springexmpl4.controller;
 
+import com.example.springexmpl4.model.Department;
 import com.example.springexmpl4.model.Employee;
 import com.example.springexmpl4.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,10 @@ public class EmployeeController {
     public Employee getEmployeeById(@PathVariable Long id){
         log.info("Fetching employee from DB by ID");
         return employeeService.getAllEmployeesById(id);
+    }
+    @GetMapping("/{firstName}")
+    public Employee getEmployeeByName(@PathVariable String firstName){
+        return employeeService.getEmployeeByName(firstName);
     }
     @PostMapping("/")
     public List<Employee> addEmployee(@RequestBody Employee employee){

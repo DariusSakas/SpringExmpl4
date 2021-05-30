@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/deparments")
+@RequestMapping("/api/departments")
 @Slf4j
 @AllArgsConstructor
 public class DepartmentController {
@@ -25,6 +25,10 @@ public class DepartmentController {
     public Department getEmployeeById(@PathVariable Long id){
         log.info("Fetching departments from DB by ID");
         return departmentService.getAllDepartmentsById(id);
+    }
+    @GetMapping("/{departmentName}")
+    public Department getDepartmentByName(@PathVariable String departmentName){
+        return departmentService.getDepartmentByName(departmentName);
     }
     @PostMapping("/")
     public List<Department> addEmployee(@RequestBody Department department){
