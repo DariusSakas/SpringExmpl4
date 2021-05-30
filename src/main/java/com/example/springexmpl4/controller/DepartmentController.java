@@ -27,7 +27,7 @@ public class DepartmentController {
         return departmentService.getAllDepartmentsById(id);
     }
     @GetMapping("/{departmentName}")
-    public Department getDepartmentByName(@PathVariable String departmentName){
+    public Department getDepartmentByName(@RequestParam String departmentName){
         return departmentService.getDepartmentByName(departmentName);
     }
     @PostMapping("/")

@@ -53,8 +53,6 @@ public class ManagementConfiguration {
                     Arrays.asList(new Email("darius.shakas@gmail.com", "Darius", "Testing mail sending", "Lorem ipsum"))
 
             );
-
-
         };
     }
 
